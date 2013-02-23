@@ -1,0 +1,58 @@
+{
+  "manifest_version": 2,
+
+  "name": "RECAP for Chrome",
+  "description": "Automatically send purchased PACER articles to The Internet Archive and download them when they're available.",
+  "version": "1.0",
+
+  "permissions": [
+    "http://*.uscourts.gov/",
+    "https://*.uscourts.gov/",
+    "http://dev.recapextension.org/",
+    "http://localhost/*",
+    "cookies",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications"
+  ],
+  "browser_action": {
+    "default_icon": "skin/recap-icon-32.png"//,
+    //"default_popup": "popup.html"
+  },
+  "background" : {
+    "scripts": ["defaults.js", "common.js", "DocLinkProcessor.js", "RequestObserver.js", "background.js"]
+  },
+  "options_page": "options.html",
+  "content_scripts" : [
+    {
+      "matches": [
+        "http://*.uscourts.gov/cgi-bin/DktRpt.pl?*",
+        "http://*.uscourts.gov/cgi-bin/HistDocQry.pl?*",
+        "https://*.uscourts.gov/cgi-bin/DktRpt.pl?*",
+        "https://*.uscourts.gov/cgi-bin/HistDocQry.pl?*",
+        "http://*.uscourts.gov/doc1/*",
+        "https://*.uscourts.gov/doc1/*"
+      ],
+      "js": ["common.js", "uploadHTML.js"], //no FormData2
+      "run_at": "document_end",
+      "all_frames": false
+    },
+    {
+      "matches" : [
+        "http://*.uscourts.gov/*",
+        "https://*.uscourts.gov/*"
+      ],
+      "js" : ["common.js", "content.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "web_accessible_resources": [
+    "skin/*",
+    "skin/recap-icon-32.png",
+    "injected/jqModal.js",
+    "injected/recapModal.js",
+    "injected/recapPDFHeaders.js",
+    "injected/jquery-1.3.2.js"
+  ]
+}

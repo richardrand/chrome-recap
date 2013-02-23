@@ -1,0 +1,65 @@
+<html>
+<head><title>RECAP for Chrome - Options</title></head>
+
+<body>
+
+<fieldset>
+	<legend>Notifications</legend>
+	<label>
+		<input type="checkbox" id="display_notifications">
+		Display notifications when Recap becomes enabled or uploads a file
+	</label>
+</fieldset>
+
+<fieldset>
+	<legend>PDF Filenames</legend>
+	<label>
+		<input type="checkbox" id="pretty_filenames">
+		Force more descriptive filenames (side-effect: prevents in-browser viewing)
+			<div style="margin-left: 2em;">
+				<label>
+					<input type="radio" name="pretty_filenames_choice" value="pretty_filenames_IAFilename">
+					Internet Archive style (eg: gov.uscourts.cand.204881.46.0.pdf)
+				</label><br>
+				<label>
+					<input type="radio" name="pretty_filenames_choice" value="pretty_filenames_FancyFilename">
+					Lawyer style (eg: N.D.Cal._3-08-cv-03251_46_0.pdf)
+				</label>
+			</div>
+	</label>
+</fieldset>
+
+<fieldset>
+	<legend>PDF Headers</legend>
+	<label>
+		<input type="checkbox" id="auto_check_pdf_headers">
+		Auto-check 'PDF Headers' option, when offered by the court
+	</label>
+</fieldset>
+
+<fieldset>
+	<legend>Caching</legend>
+	<label>
+		Cache time in milliseconds
+		<input type="text" id="cache_time_ms">
+	</label>
+</fieldset>
+
+<fieldset>
+	<legend>Deactivate RECAP</legend>
+	<label>
+		<input type="checkbox" id="temp_disable">
+		Temporarily force RECAP to stay deactivated even when logged into PACER
+	</label>
+</fieldset>
+
+<br>
+<div id="status"></div>
+<button id="save">Save</button>
+<button id="defaults">Restore Defaults</button>
+</body>
+
+<script src="defaults.js"></script>
+<script src="options.js"></script>
+
+</html>
