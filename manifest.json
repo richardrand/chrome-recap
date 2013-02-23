@@ -8,11 +8,12 @@
   "permissions": [
     "http://*.uscourts.gov/",
     "https://*.uscourts.gov/",
-    "http://dev.recapextension.org/",
-    "http://localhost/*",
+    "http://recapextension.org/", //To access the RECAP server
+    "http://dev.recapextension.org/", //DEBUG: To access the remote test server
+    "http://localhost/*", //DEBUG: To access the local test server
     "cookies",
     "webRequest",
-    "webRequestBlocking",
+    "webRequestBlocking", //To change filenames and cache headers
     "notifications"
   ],
   "browser_action": {

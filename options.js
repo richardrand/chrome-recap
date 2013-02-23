@@ -33,6 +33,11 @@ function save_options() {
   for (var i = 0; i < pretty_filenames_choices.length; i++)
     if (pretty_filenames_choices[i].checked)
       localStorage["pretty_filenames_choice"] = pretty_filenames_choices[i].value;
+      
+  var recap_server = document.getElementsByName('recap_server');
+  for (var i = 0; i < recap_server.length; i++)
+    if (recap_server[i].checked)
+      localStorage["recap_server"] = recap_server[i].value;
 
   // Update status to let user know options were saved.
   var status = document.getElementById("status");
@@ -55,6 +60,11 @@ function restore_options() {
   for (var i = 0; i < pretty_filenames_choices.length; i++)
     if (localStorage["pretty_filenames_choice"] == pretty_filenames_choices[i].value)
       pretty_filenames_choices[i].checked = true;
+      
+  var recap_server = document.getElementsByName('recap_server');
+  for (var i = 0; i < recap_server.length; i++)
+    if (localStorage["recap_server"] == recap_server[i].value)
+      recap_server[i].checked = true;
 }
 
 // Restores checkbox state to defauLts. Does not save to localStorage
@@ -70,6 +80,11 @@ function restore_defaults() {
   for (var i = 0; i < pretty_filenames_choices.length; i++)
     if (prefs["pretty_filenames_choice"] == pretty_filenames_choices[i].value)
       pretty_filenames_choices[i].checked = true;
+      
+  var recap_server = document.getElementsByName('recap_server');
+  for (var i = 0; i < recap_server.length; i++)
+    if (prefs["recap_server"] == recap_server[i].value)
+      recap_server[i].checked = true;
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);

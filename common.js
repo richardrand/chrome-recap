@@ -35,7 +35,7 @@ var ICON_DISABLED_32 = "skin/recap-icon-disabled-32.png";
 var ICON_EXCLAMATION = "skin/recap-icon-exclamation.png";
 var ICON_EXCLAMATION_32 = "skin/recap-icon-exclamation-32.png";
 
-var SERVER_URL = /*"http://localhost/recap/";*/ "http://dev.recapextension.org/recap/";
+var SERVER_URL = "http://" + localStorage['recap_server'] + "/recap/";
 
 var UPLOAD_URL = SERVER_URL + "upload/";
 var QUERY_URL = SERVER_URL + "query/";
